@@ -107,7 +107,7 @@ def optimize_arguments(x_dicts, trial_args, args_deltas={}, ord_mag=1, delta_pie
 		
 	return main() #execute main()
 
-#SAMPLE USE
+#SAMPLE USE [for instruction purpose only]
 '''
 def y_func(x, po, off):	
 	return po**np.array(x) + off
