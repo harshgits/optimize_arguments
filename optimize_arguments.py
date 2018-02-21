@@ -1,7 +1,40 @@
+#	MIT License
+#
+#	Copyright (c) 2017 Harsh Chaturvedi
+#
+#	Permission is hereby granted, free of charge, to any person obtaining a copy
+#	of this software and associated documentation files (the "Software"), to deal
+#	in the Software without restriction, including without limitation the rights
+#	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#	copies of the Software, and to permit persons to whom the Software is
+#	furnished to do so, subject to the following conditions:
+#
+#	The above copyright notice and this permission notice shall be included in all
+#	copies or substantial portions of the Software.
+#
+#	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+#	SOFTWARE.
+
+'''
+Minimization of least-squares distance between non-linear functions via 
+optimization of free parameters (arguments).
+
+In problems such as those of curve fitting and dynamical scaling, we often need 
+to evaluate free parameters that will minimize the distance between different 
+non-linear functions of some independent variable(s). The optimize_arguments 
+function achieves this by performing an iterative grid-search over the space of 
+free parameters (arguments) as specified by the user.
+'''
+
 import numpy as np
 from math import fsum, fabs
 
-#output:
+#sample output:
 #{'args': {'off': -857.368421052539, 'po': -9.314108}, 'ys': [{'y':[1,2,3,4,...1000],'x_slope':1.0,'x_offset':0.0,'y_slope':1.0,'y_offset':0.0}, {'y':[-4,-5,-6,-7,...-560],'x_slope':1399.0898,'x_offset':128397.65347,'y_slope':-13.109283,'y_offset':1290.23}]}
 
 def optimize_arguments(x_dicts, trial_args, args_deltas={}, ord_mag=1, delta_pieces=10, prec_iters=10):
