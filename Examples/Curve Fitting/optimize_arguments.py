@@ -31,7 +31,6 @@ function achieves this by performing an iterative grid-search over the space of
 free parameters (arguments) as specified by the user.
 '''
 
-from __future__ import print_function
 import numpy as np
 from math import fsum, fabs
 from scipy.optimize import minimize
